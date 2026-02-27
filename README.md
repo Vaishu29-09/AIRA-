@@ -132,14 +132,14 @@ Step 5: Open the browser link shown in the terminal to use the tool.
 Member 1:  Akshath
 Role: Project Design, UI Development, Integration
 
-Member 2:  
+Member 2:  Srinath
 Role: PII Detection Logic, Regex Implementation
 
-Member 3:   
+Member 3:   Vaishnavi
 Role: Data Processing, Redaction Engine
 
-Member 4:   
-Role: Testing, Documentation, Demo Preparation
+Member 4:   Akhiranandan
+Role: Testing, Demo Preparation
 
 ## PROJECT SUMMARY
 
