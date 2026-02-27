@@ -13,9 +13,16 @@ This leads to:
 
 There is a need for an automated system that detects and redacts sensitive information before datasets are shared publicly.
 
-2. # APPROACH
+2. # PROPOSED SOLUTION
 
----
+
+The proposed solution is an AI-Assisted PII Redaction System designed to automatically detect, assess, and sanitize sensitive information in datasets before they are shared publicly or used for AI model training.
+
+Instead of relying on slow and error-prone manual review, this system acts as an automated privacy filter that ensures datasets are compliant, secure, and safe for distribution.
+
+
+
+3. # APPROACH
 
 We built a lightweight Privacy Compliance Tool that acts as a “data safety layer” before datasets are released.
 
@@ -33,37 +40,71 @@ This ensures datasets are safe for:
 • Research publishing
 • AI/LLM training pipelines
 
-3. # TECH STACK USED
+4. # TECH STACK USED
 
----
+• Python – Core programming language used to build the redaction engine and processing logic.
 
-• Python – Core programming language
-• Streamlit – Web-based user interface
-• Pandas – Dataset handling and processing
-• Regex (re module) – Pattern-based PII detection
-• OpenPyXL – Excel file support
+• Streamlit – Provides the web-based interface for uploading datasets and viewing redacted outputs interactively.
 
-4. # THIRD-PARTY TOOLS USED
+• Pandas – Handles structured data processing, cleaning, transformation, and file format support (CSV/Excel).
 
----
+• Regex (re module) – Performs rule-based detection of structured PII such as emails, phone numbers, and IDs.
 
-Tool: Streamlit
+• OpenPyXL – Enables reading and writing Excel (.xlsx) dataset files.
+
+• Groq API – Used for fast LLM-based contextual analysis to detect sensitive information in unstructured text.
+
+• python-dotenv – Manages environment variables securely (API keys, configuration settings).
+
+• pdfplumber – Extracts text from PDF documents for scanning and redaction.
+
+• python-docx – Processes Microsoft Word (.docx) files to detect and redact sensitive content.
+
+• pytesseract – Performs OCR (Optical Character Recognition) to extract text from images or scanned documents.
+
+• Pillow (PIL) – Supports image preprocessing required for OCR operations.
+
+• ReportLab – Generates clean, redacted PDF outputs after processing.
+
+5. # THIRD-PARTY TOOLS USED
+
+ Tool: Streamlit
 License: Apache License 2.0
-Usage: Used to create the interactive UI for uploading and processing datasets.
+Usage: Provides the web-based interface for uploading datasets and displaying redacted outputs interactively.
 
-Tool: Pandas
+Tool: Groq (LLM Inference API)
+License: Proprietary (API-based usage)
+Usage: Enables fast AI-assisted entity detection and contextual understanding for identifying sensitive information beyond regex patterns.
+
+Tool: python-dotenv
 License: BSD 3-Clause License
-Usage: Used for structured data processing and transformation.
+Usage: Manages environment variables securely (e.g., API keys) without hardcoding them into the source code.
 
-Tool: OpenPyXL
+Tool: pdfplumber
 License: MIT License
-Usage: Used for reading Excel dataset files.
+Usage: Extracts text from PDF documents so that PII detection can be applied to unstructured files.
 
-(All tools used are open-source and compliant for academic and hackathon use.)
+Tool: python-docx
+License: MIT License
+Usage: Reads and processes Microsoft Word (.docx) files for scanning and redaction of sensitive content.
 
-5. # SETUP INSTRUCTIONS
+Tool: pandas
+License: BSD 3-Clause License
+Usage: Handles structured dataset processing, transformation, and export of cleaned data files.
 
----
+Tool: reportlab
+License: BSD License
+Usage: Generates redacted PDF outputs and compliance-ready reports.
+
+Tool: pytesseract
+License: Apache License 2.0
+Usage: Performs OCR (Optical Character Recognition) to detect text from scanned documents and images before applying PII redaction.
+
+Tool: Pillow (PIL)
+License: Historical Permission Notice and Disclaimer (HPND)
+Usage: Supports image preprocessing required for OCR and redaction workflows.
+
+6. # SETUP INSTRUCTIONS
 
 Follow these steps to run the project locally:
 
@@ -86,9 +127,9 @@ streamlit run app.py
 
 Step 5: Open the browser link shown in the terminal to use the tool.
 
-6. TEAM MEMBERS & ROLES
+7. # TEAM MEMBERS & ROLES
 
-Member 1:  
+Member 1:  Akshath
 Role: Project Design, UI Development, Integration
 
 Member 2:  
